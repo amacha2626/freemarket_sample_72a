@@ -1,1 +1,92 @@
 -# 商品詳細ページです
+%h1 ヘッダー(render)
+.history
+<パンくず>
+.details
+  .details_contents
+    .details_contents_title
+      .details_contents_title_name
+        product3
+    .details_contents_image
+      .details_contents_image_image1
+        =image_tag "海１.jpg", size: "560x346"
+      .details_contents_image_images
+        .details_contents_image_images_fail
+          .details_contents_image_images_image2
+            =image_tag "海２.jpg", size: "140x87"
+          .details_contents_image_images_image3
+            =image_tag "海３.jpg", size: "140x87"
+          .details_contents_image_images_image4
+            =image_tag "海４.jpg", size: "140x87"
+    .details_contents_price
+      値段
+    .details_contents_tax
+      (税込み) 送料込み
+    .details_contents_text
+      テキスト
+    %table
+      %tbody
+        %tr
+          %th 出品者
+          %td テキストが入ります
+            
+        %tr
+          %th カテゴリー
+          %td リンクが入ります
+
+        %tr
+          %th ブランド
+          %td 
+            = link_to "リンクが入ります"
+            
+        %tr
+          %th 商品のサイズ
+          %td テキストが入ります
+
+        %tr 
+          %th 商品の状態
+          %td テキストが入ります
+        %tr
+          %th 配送料の負担
+          %td テキストが入ります
+        %tr
+          %th 発送元の地域
+          %td 
+            = link_to "リンクが入ります"
+        %tr
+          %th 見発送日の目安
+          %td テキストが入ります
+
+    .details_contents_option
+      .details_contents_option_like
+        = link_to "#" do
+          = icon('fas fa-star', class: "like-icon")
+          お気に入り
+      .details_contents_option_optional
+        = link_to "#" do
+          = icon('fab fa-font-awesome-flag', class: "flag-icon")
+          不適切な商品の通報
+  .details_comment
+    .details_comment_box
+      %textarea  
+    .details_comment_info
+      相手のことを考え丁寧なコメントを心がけましょう。
+      %br
+      不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .details_comment_btn
+      %button{type: "submit", class: 'submit-btn'}
+        コメントする
+  .details_links
+    .details_links_back
+      = link_to "#" do
+        = icon('fas fa-chevron-left', class: "back-icon")
+        前の商品
+    .details_links_next
+      = link_to "#" do
+        後ろの商品
+        = icon('fas fa-chevron-right', class: "next-icon")
+  .details_more
+    = link_to "#" do
+      ベビー・キッズをもっと見る
+
+%h2 フッター(render)

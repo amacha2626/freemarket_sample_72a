@@ -1,0 +1,22 @@
+.signin-container {
+  text-align: center;
+  &_signin-top {
+    &_signup {
+      height: 25px;
+    }
+    &_new_register {
+      height: 40px;
+    }
+    &_form {
+      &_sns {
+        height: 165px;
+
+        }
+      &_text {
+      }
+      &_form-container {
+        padding-top: 20px; 
+      }
+    }
+  }
+}

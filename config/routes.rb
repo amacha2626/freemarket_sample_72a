@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'items#index'
-  resources :items, only: [:new, :create, :show, :edit, :update, :destroy, :buy] do
+  resources :items, except: :index do
     resources :item_images, only: [:create, :destroy]
-    member do
-      get 'buy'
-    end
   end
   resources :users, only: [:show, :edit, :update, :logout] do
     resources :profiles, only: :create

@@ -1,33 +1,34 @@
-h1 {
-  background-color: rgb(241, 241, 241);
-  height: 61px;
-}
-nav {
-  background-color: rgb(241, 241, 241);
-}
-img {
-  height: 50px;
-  margin-left: 44%;
-}
-h2 {
-  color: black;
-  font-size: 18px;
-  font-weight: bold;
-  height: 65px;
-  margin-top: 15px;
-  text-align: center;
-}
-
-
-.form {
-  text-align: center;
-  &_signup-container {
-    &_registration-form {
-      &_signup-container_street_adress {
-        .street_adress {
-          width: 50%;
-        }
-      }
-    }
+.header {
+  h1 {
+    background-color: rgb(241, 241, 241);
+    height: 61px;
+  }
+  nav {
+    background-color: rgb(241, 241, 241);
+  }
+  img {
+    height: 50px;
+    margin-left: 44%;
   }
 }
+
+  .form {
+    text-align: center;
+    &_signup-container {
+      &_signup-header {
+        color: red;
+        font-size: 18px;
+        font-weight: bold;
+        height: 65px;
+        margin-top: 15px;
+        text-align: center;
+      }
+      &_registration-form {
+        &_signup-container_street_adress {
+          .street_adress {
+            width: 50%;
+          }
+        }
+      }
+    }  
+  }

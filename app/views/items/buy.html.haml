@@ -1,1 +1,42 @@
 -# 購入確認ページです
+.buying
+  .buying_contents1
+    購入内容の確認
+  .buying_contents2
+    .buying_contents2_item
+      =image_tag "海１.jpg", size: "100x100"
+      .buying_contents2_item_image
+        .buying_contents2_item_image_name
+          名前
+        .buying_contents2_item_image_total
+          税込み料金
+  .buying_front
+    .buying_front_contents3
+      .buying_front_contents3_buy
+        .buying_front_contents3_buy_label
+          支払い金額
+        .buying_front_contents3_buy_price
+          ¥金額
+      .buying_front_contents3_how
+        支払い方法
+      .buying_front_contents3_register
+        = link_to "#" do
+          = icon('fas fa-plus-circle', class: "register-icon")
+          登録してください
+      .buying_front_contents3_send
+        .buying_front_contents3_send_left
+          配送先
+        .buying_front_contents3_send_change
+          = link_to "＃" do
+            変更する
+      .buying_front_contents3_address
+        postal_code
+        %br
+        住所
+      .buying_front_contents3_text
+        郵便局/コンビニ受取をご希望の方は、購入後、
+        %span 取引画面
+        から受取場所変更をすることが可能です。出品者が発送作業を開始した後には受取場所変更ができませんので、早めに受取場所の変更を行ってください。
+      .buying_front_contents3_btn
+      %button{type: "submit", class:'submit-btn'} 
+        購入する

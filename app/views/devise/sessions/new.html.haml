@@ -6,14 +6,14 @@
     .signin-container_signin-top_new_register
       = link_to '新規会員登録',class: 'signin-top_signup-btn'
     .signin-container_signin-top_form
-      .signin-container_signin-top_form_sns
-        = link_to root_path,class: 'signin-top_form_sns_facebook' do
-          %i.fab.fa-facebook-square.signin-top_form-icon.signin-top_form-facebook
-          = 'Facebookでログイン'
-        %br
-        = link_to root_path,class: 'signin-top_form_sns_google' do
-          %i.fab.fa-google.signin-top__form-icon.signin-top_form-google
-          = 'Googleでログイン'
+      -# .signin-container_signin-top_form_sns
+      -#   = link_to root_path,class: 'signin-top_form_sns_facebook' do
+      -#     %i.fab.fa-facebook-square.signin-top_form-icon.signin-top_form-facebook
+      -#     = 'Facebookでログイン'
+      -#   %br
+      -#   = link_to root_path,class: 'signin-top_form_sns_google' do
+      -#     %i.fab.fa-google.signin-top__form-icon.signin-top_form-google
+      -#     = 'Googleでログイン'
       .signin-container_signin-top_form_text
         = email_field :email,class: 'signin-top_form_text-email default-input'
         %br

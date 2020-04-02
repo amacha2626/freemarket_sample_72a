@@ -1,0 +1,112 @@
+.buying {
+  width: 100%;
+  background-color: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  &_contents1 {
+    text-align: center;
+    line-height: 97px;
+    height: 97px;
+    font-weight: bold;
+    font-size: 22px;
+    background-color: white;
+    width: 700px;
+    margin: auto;
+    border: solid 1px;
+    border-color: white;
+    border-bottom-color: #d3d3d3;
+  }
+  &_contents2 {
+    width: 700px;
+    height: 145px;
+    border: solid 1px;
+    border-color: white;
+    border-bottom-color: #d3d3d3;
+    background-color: white;
+    margin: auto;
+    &_item {
+      display: flex;
+      width: 343px;
+      margin: auto;
+      padding-top: 20px;
+      &_image {
+        padding-left: 10px;
+        &_total {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  &_front {
+    background-color: white;
+    width: 700px;
+    margin: auto;
+    &_contents3 {
+      width: 343px;
+      margin: auto;
+      &_buy {
+        height: 70px;
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        border: solid 1px;
+        border-color: white;
+        border-bottom-color: #d3d3d3;
+        font-weight: bold;
+        &_label {
+          padding-top: 10px;
+          font-size: 18px;
+        }
+        &_price {
+          font-size: 30px;
+        }
+      }
+      &_how {
+        padding-top: 10px;
+        height: 40px;
+      }
+      &_register {
+        padding-top: 10px;
+        height: 40px;
+        font-family: "Font Awesome 5 Free";
+        border: solid 1px;
+        border-color: white;
+        border-bottom-color: #d3d3d3;
+        a{text-decoration: none;}
+      }
+      &_send {
+        padding-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        &_left {
+        font-weight: bold;
+        }
+        &_change {
+          a{text-decoration: none;}
+        }
+      }
+      &_address {
+        margin: 20px 0;
+        padding-bottom: 20px;
+        height: 40px;
+        border: solid 1px;
+        border-color: white;
+        border-bottom-color: #d3d3d3;
+      }
+      &_text {
+        font-size: 14px;
+        padding-bottom: 20px;
+        span {
+          font-weight: bold;
+        }
+      }
+      .submit-btn {
+        background-color: #696969;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        margin-bottom: 20px;
+        color: white;
+      }
+    }
+  }
+}

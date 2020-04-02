@@ -1,0 +1,2 @@
+module DeliveryDestinationsHelper
+end

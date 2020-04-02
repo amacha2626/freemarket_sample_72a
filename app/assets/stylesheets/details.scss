@@ -1,0 +1,141 @@
+// Place all the styles related to the details controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.main {
+  width: 100%;
+  background-color:#f5f5f5;
+  &_contents {
+    width: 700px;
+    height: 1150px;
+    background-color: white;
+    margin: 20px auto;
+    text-align: center;
+    &_title {
+      width: 700px;
+      height: 30px;
+      &_name {
+        font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+      }
+    }
+    &_image {
+      text-align: center;
+      &_image1 {
+      
+      }
+      &_images {
+
+        &_fail {
+          display: flex;
+          padding-left: 140px;
+        }
+      }
+    }
+    &_price{
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+      font-size: 46px;
+      font-weight: bold;
+    }
+    &_tax {
+      font-size: 16px;
+    }
+    &_text {
+      margin: 20px;
+    }
+    table {
+      margin: auto;
+      width: 620px;
+      height: 426px;
+      a {text-decoration: none;}
+    }
+    tr {
+      border: solid 1px;
+      border-color: gray;
+    }
+    th {
+      background-color: rgb(192, 189, 189);
+      border: solid 1px;
+
+      width: 152px;
+      height: 38px;
+      text-align: center;
+    }
+    td {
+      float: left;
+      padding-left: 10px;
+    }
+    &_option {
+      padding-top: 10px;
+      display: flex;
+      width: 620px;
+      justify-content: space-between;
+      margin: auto;
+      a {text-decoration: none;}
+      &_like {
+        padding: 6px 10px;
+        border-radius: 40px;
+        color: #3CCACE;
+        border: 1px solid #ffb340;
+      }
+      &_optional {
+        padding: 6px 10px;
+        border-radius: 10%;
+        border: 1px solid;
+      }
+    }
+  }
+  &_comment {
+    background-color: white;
+    width: 700px;
+    margin: auto;
+    &_box {
+      text-align: center;
+      
+      textarea { 
+        height: 217px; 
+        width: 597px;
+        margin-top: 20px;
+      }
+    }
+    &_info {
+      background-color: rgb(230, 225, 225);
+      margin: 20px;
+    }
+    &_btn {
+      button {
+        line-height: 48px;
+        background: #3CCACE;
+        border: 1px solid #3CCACE;
+        color: #fff;
+        width: 60%;
+        font-size: 18px;
+        border-radius: 100px;
+        margin: 20px 130px;
+      }
+    }
+  }
+  &_links {
+    width: 700px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    &_back {
+      a {text-decoration: none;}
+    }
+    &_next {
+      a {text-decoration: none;}
+    }
+  }
+  &_more {
+    a {text-decoration: none;}
+    width: 700px;
+    height: 33px;
+    margin: 24px auto 8px;
+    font-weight: bold;
+    font-size: 22px;
+  }
+}

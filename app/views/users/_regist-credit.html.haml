@@ -1,0 +1,51 @@
+.wrapper__main
+  .credit-wrapper
+    .credit-wrapper__title
+      %p クレジットカード情報入力
+    %hr
+    %form.credit-wrapper__form
+      .credit-wrapper__form__headline
+        %p カード番号
+        %p.credit-wrapper__form__headline__required 必須
+      %input(type="text" placeholder="半角数字のみ")
+      .credit-wrapper__form__mark
+        %img(src="https://pcweb-assets.mercdn.net/assets/img/card/visa.svg?1152353370")
+        %img(src="https://pcweb-assets.mercdn.net/assets/img/card/master-card.svg?1152353370")
+        %img(src="https://pcweb-assets.mercdn.net/assets/img/card/jcb.svg?1152353370")
+      .credit-wrapper__form__headline
+        %p 有効期限
+        %p.credit-wrapper__form__headline__required 必須
+      .credit-wrapper__form__selecter
+        %select(name="1")
+          %option(value="1")1
+          %option(value="2")2
+          %option(value="3")3
+          %option(value="4")4
+          %option(value="5")5
+          %option(value="6")6
+          %option(value="7")7
+          %option(value="8")8
+          %option(value="9")9
+          %option(value="10")10
+          %option(value="11")11
+          %option(value="12")12
+        月
+        %select(name="20")
+          %option(value="20")20
+          %option(value="21")21
+          %option(value="22")22
+          %option(value="23")23
+          %option(value="24")24
+          %option(value="25")25
+          %option(value="26")26
+          %option(value="27")27
+          %option(value="28")28
+          %option(value="29")29
+          %option(value="30")30
+        年
+      .credit-wrapper__form__headline
+        %p セキュリティコード
+        %p.credit-wrapper__form__headline__required 必須
+      %input(type="text" placeholder="カード背面4桁もしくは3桁の番号")
+      .credit-wrapper__form__submit
+        %button 登録する

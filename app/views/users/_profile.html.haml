@@ -1,9 +1,10 @@
 .wrapper__main
   .wrapper__main__profile
     .wrapper__main__profile__user
-      = link_to '/' do
+      = link_to '#' do
         = image_tag '/assets/mypage-icon.png', class: "wrapper__main__profile__user__icon"
-        %p.wrapper__main__profile__user__name dog man
+        %p.wrapper__main__profile__user__name 
+          = @user.nickname
   .wrapper__main__tabs
     %input#tab1{:name => 'tab-radio', :type => "radio", :checked => "checked"}
     %label.wrapper__main__tabs__left.tab(for="tab1")

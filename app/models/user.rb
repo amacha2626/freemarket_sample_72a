@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :profile, dependent: :destroy
-  # has_one :credit_card, dependent: :destroy
+  has_one :credit_card, dependent: :destroy
   has_one :delivery_destination, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :buyer_items, foreign_key: "buyer_id", class_name: 'Items'

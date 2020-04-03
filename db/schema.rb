@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200402122856) do
+ActiveRecord::Schema.define(version: 20200403033214) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -36,6 +36,18 @@ ActiveRecord::Schema.define(version: 20200402122856) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
+  create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.bigint   "card_number"
+    t.integer  "expiration_year"
+    t.string   "expiration_month"
+    t.integer  "security_code"
+    t.string   "campany"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
+  end
+
   create_table "delivery_destinations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",                      null: false
     t.string   "destination_family_name",      null: false
@@ -59,18 +71,6 @@ ActiveRecord::Schema.define(version: 20200402122856) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_item_images_on_item_id", using: :btree
-ActiveRecord::Schema.define(version: 20200403033214) do
-
-  create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
-    t.bigint   "card_number"
-    t.integer  "expiration_year"
-    t.string   "expiration_month"
-    t.integer  "security_code"
-    t.string   "campany"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20200403033214) do
 
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
+  add_foreign_key "credit_cards", "users"
   add_foreign_key "delivery_destinations", "users"
   add_foreign_key "item_images", "items"
   add_foreign_key "items", "brands"
@@ -130,5 +131,4 @@ ActiveRecord::Schema.define(version: 20200403033214) do
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "profiles", "users"
-  add_foreign_key "credit_cards", "users"
 end

@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200402035750) do
+ActiveRecord::Schema.define(version: 20200403033214) do
+
+  create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.bigint   "card_number"
+    t.integer  "expiration_year"
+    t.string   "expiration_month"
+    t.integer  "security_code"
+    t.string   "campany"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
+  end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
   end
@@ -29,4 +41,5 @@ ActiveRecord::Schema.define(version: 20200402035750) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "credit_cards", "users"
 end

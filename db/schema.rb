@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 20200402122856) do
     t.index ["item_id"], name: "index_item_images_on_item_id", using: :btree
   end
 ActiveRecord::Schema.define(version: 20200402035750) do
+ActiveRecord::Schema.define(version: 20200402093431) do
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
+  end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                         null: false
@@ -87,7 +96,7 @@ ActiveRecord::Schema.define(version: 20200402035750) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "nickname",                            null: false
+    t.string   "nickname"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

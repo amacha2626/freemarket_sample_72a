@@ -116,9 +116,11 @@
     .picup__box__title
       新規投稿商品
     .picup__box__list
-      .picup__box__list__pic
-        =image_tag("photo1.jpeg")
-      .picup__box__list__pic
-        =image_tag("photo2.jpeg")
-      .picup__box__list__pic
-        =image_tag("photo1.jpeg")
+      .picup__box__list__item
+        - @items.each do |item|
+        .picup__box__list__item__pic
+          =image_tag("photo1.jpeg")
+        .picup__box__list__item__name
+          = item.name
+        .picup__box__list__item__price
+          = item.price

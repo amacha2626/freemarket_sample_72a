@@ -1,127 +1,58 @@
--# 商品出品ページです
 .exhibition-container
-  .exhibition-container_registration-form    
-    .exhibition-container_registration-form_addphotos
-      = label :photos, '出品画像', class: 'labelname'
-      %span.esessential-icon 必須
-      %br
-      %button{type: "addphotos", value: "addphotos", class: "addphotos"} 
-    .exhibition-container_registration-form_item_name 
-      = label :item_name, '商品名', class: 'labelname'
-      %span.esessential-icon 必須
-      %br
-      %input{class: 'item_name ', placeholder: '４０文字まで'}
-    .exhibition-container_registration-form_item_description
-      = label :item_description, '商品説明', class: 'labelname'
-      %span.esessential-icon 必須
-      %br
-      %textarea{class: 'item_description', placeholder: '商品の説明(色、素材、重さ、定価、注意点など)'}
-    %h3 商品の詳細
-    .exhibition-container_registration-form_categorie
-      = label :categorie, 'カテゴリー', class: 'labelname'
-      %span.esessential-icon 必須
-      %br
-      %form{ action: "#", method: "post"}
-      %select{ class: "categorie" }
-        %option{ value: "選択してください"} 選択してください
-        %option{ value: "メンズ"} メンズ
-        %option{ value: "レディース"} レディース
-        %option{ value: "インテリア"} インテリア
+  .exhibition-container_registration-form
+    = form_for @item do |f|
+      .exhibition-container_registration-form_addphotos
+        = label :photos, '出品画像', class: 'labelname'
+        %span.esessential-icon 必須
+        %br
+        %button{type: "addphotos", value: "addphotos", class: "addphotos"} 
+      .exhibition-container_registration-form_item_name 
+        = label :item_name, '商品名', class: 'labelname'
+        %span.esessential-icon 必須
+        %br
+        = f.text_field :name, class: 'item_name', placeholder: '40文字まで'
+      .exhibition-container_registration-form_item_description
+        = label :item_description, '商品説明', class: 'labelname'
+        %span.esessential-icon 必須
+        %br
+        = f.text_area :description, class: 'item_description', placeholder: '商品の説明(色、素材、重さ、定価、注意点など)'
+      %h3 商品の詳細
+      .exhibition-container_registration-form_categorie
+        = label :categorie, 'カテゴリー', class: 'labelname'
+        %span.esessential-icon 必須
+        %br
+        = f.select :category_id, [['メンズ', 1],['レディース', 2],['インテリア', 3]], {include_blank: true, selected: 1}, {class: "categorie"}
 
-    .exhibition-container_registration-form_brand_name
-      = label :brand_name, 'ブランド', class: 'labelname'
-      %span.optional-icon 任意
-      %br
-      %input{class: 'brand_name', placeholder: 'シャネル'}
-    
-    .exhibition-container_registration-form_item_condition
-      = label :categorie, '商品の状態', class: 'labelname'
-      %span.esessential-icon 必須
-      %br
-      %form{ action: "#", method: "post"}
-      %select{ class: "item_condition" }
-        %option{ value: "選択してください"} 選択してください
-        %option{ value: "新品　未使用"} 新品　未使用
-        %option{ value: "未使用に近い"} 未使用に近い
-        %option{ value: "目立った傷や汚れなし"} 目立った傷や汚れなし
-    %h3 配送について
-    .exhibition-container_registration-form_charge
-      = label :charge, '発送料の負担額', class: 'labelname'
-      %span.esessential-icon 必須
-      %br
-      %form{ action: "#", method: "post"}
-      %select{ class: "charge"}
-        %option{ value: "選択してください"} 選択してください
-        %option{ value: "送料込み"} 送料込み
-        %option{ value: "着払い"} 着払い
-    .exhibition-container_registration-form_area
-      = label :area, '発送元の地域', class: 'labelname'
-      %span.esessential-icon 必須
-      %br
-      %form{ action: "#", method: "post"}
-      %select{ class: "area" }
-        %option{ value: "選択してください"} 選択してください
-        %option{ value: "1"} 北海道
-        %option{ value: "2"} 青森県
-        %option{ value: "3"} 岩手県
-        %option{ value: "4"} 宮城県
-        %option{ value: "5"} 秋田県
-        %option{ value: "6"} 山形県
-        %option{ value: "7"} 福島県
-        %option{ value: "8"} 茨城県
-        %option{ value: "9"} 栃木県
-        %option{ value: "10"} 群馬県
-        %option{ value: "11"} 埼玉県
-        %option{ value: "12"} 千葉県
-        %option{ value: "13"} 東京都
-        %option{ value: "14"} 神奈川県
-        %option{ value: "15"} 新潟県
-        %option{ value: "16"} 富山県
-        %option{ value: "17"} 石川県
-        %option{ value: "18"} 福井県
-        %option{ value: "19"} 山梨県
-        %option{ value: "20"} 長野県
-        %option{ value: "21"} 岐阜県
-        %option{ value: "22"} 静岡県
-        %option{ value: "23"} 愛知県
-        %option{ value: "24"} 三重県
-        %option{ value: "25"} 滋賀県
-        %option{ value: "26"} 京都府
-        %option{ value: "27"} 大阪府
-        %option{ value: "28"} 兵庫県
-        %option{ value: "29"} 奈良県
-        %option{ value: "30"} 和歌山県
-        %option{ value: "31"} 鳥取県
-        %option{ value: "32"} 島根県
-        %option{ value: "33"} 岡山県
-        %option{ value: "34"} 広島県
-        %option{ value: "35"} 山口県
-        %option{ value: "36"} 徳島県
-        %option{ value:"37"} 香川県
-        %option{ value: "38"} 愛媛県
-        %option{ value: "39"} 高知県
-        %option{ value: "40"} 福岡県
-        %option{ value: "41"} 佐賀県
-        %option{ value: "42"} 長崎県
-        %option{ value: "43"} 熊本県
-        %option{ value: "44"} 大分県
-        %option{ value: "45"} 宮崎県
-        %option{ value: "46"} 鹿児島県
-        %option{ value: "47"} 沖縄県
-    .exhibition-container_registration-form_day
-      = label :day, '発送までの日数', class: 'labelname'
-      %span.esessential-icon 必須
-      %br
-      %form{ action: "#", method: "post"}
-      %select{ class: "day" }
-        %option{ value: "選択してください"} 選択してください
-        %option{ value: "１〜２日で発送"} 　１〜２日で発送
-        %option{ value: "３〜４日で発送"} 　３〜４日で発送
-        %option{ value: "５〜７日で発送"}　５〜７日で発送
-    %h6 価格(¥300~9,999,999)
-    .exhibition-container_registration-form_price
-      = label :price, '販売価格', class: 'labelname'
-      %span.esessential-icon 必須
-      %br
-      %input{class: 'price', placeholder: "１０００円"}
-    %button{type: "exhibition", value: "出品する", class: "exhibition"} 出品する
+      .exhibition-container_registration-form_brand_name
+        = label :brand_name, 'ブランド', class: 'labelname'
+        %span.optional-icon 任意
+        %br
+        %input{class: 'brand_name', placeholder: 'シャネル'}
+      .exhibition-container_registration-form_item_condition
+        = label :categorie, '商品の状態', class: 'labelname'
+        %span.esessential-icon 必須
+        %br
+        = f.select :category_id, [['新品 未使用', 1],['未使用に近い', 2],['目立った傷や汚れなし', 3]], {include_blank: true, selected: 1}, {class: "item_condition"}
+      %h3 配送について
+      .exhibition-container_registration-form_charge
+        = label :charge, '発送料の負担額', class: 'labelname'
+        %span.esessential-icon 必須
+        %br
+        = f.select :category_id, [['送料込み', 1],['着払い', 2]], {include_blank: true, selected: 1}, {class: "charge"}
+      .exhibition-container_registration-form_area
+        = label :area, '発送元の地域', class: 'labelname'
+        %span.esessential-icon 必須
+        %br
+        = f.select :category_id, @area, {include_blank: true, selected: 1}, {class: "area"}
+      .exhibition-container_registration-form_day
+        = label :day, '発送までの日数', class: 'labelname'
+        %span.esessential-icon 必須
+        %br
+        = f.select :category_id, [['1〜2日で発送', 1],['3〜4日で発送', 2],['5〜7日で発送', 2]], {include_blank: true, selected: 1}, {class: "day"}
+      %h6 価格(¥300~9,999,999)
+      .exhibition-container_registration-form_price
+        = label :price, '販売価格', class: 'labelname'
+        %span.esessential-icon 必須
+        %br
+        = f.text_field :price, class: 'price', placeholder: '0'
+      = f.submit type: "exhibition", value: "出品する", class: "exhibition"

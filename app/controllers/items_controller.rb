@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.all.order("created_at DESC"),per(3)
+    @items = Item.all.order("created_at DESC").limit(3)
   end
 
   def new

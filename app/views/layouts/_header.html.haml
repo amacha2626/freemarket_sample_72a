@@ -12,7 +12,17 @@
     .header-bar__navbar
       .header-bar__navbar__menu
         .header-bar__navbar__menu__category
-          カテゴリー
+          = link_to "カテゴリー", categories_path 
+          %ul.index-categories
+            - @parents.each do |parent|
+              = link_to "#" do
+                %li.category-name
+                  = parent.name
+              -# %ul.index-sub-categories
+              -#   - parent.children.each do |child|
+              -#     = link_to "#" do
+              -#       %li.sub-category-name
+              -#         = child.name
         .header-bar__navbar__menu__brand
           =link_to "ブランド", '#'
       .header-bar__navbar__user

@@ -18,6 +18,7 @@
   .form_signup-container
     %h2.signup-header 会員情報入力
     .form_signup-container_registration-form
+     
       .form_signup-container_registration-form_signup-container_nickname
         = label :nickname, 'ニックネーム', class: 'signup-label'
         %span.sessential-icon 必須
@@ -27,7 +28,7 @@
         = label :mailadress, 'メールアドレス(＠とドメインを含む)', class: 'signup-label'
         %span.sessential-icon 必須
         %br
-        = text_field :mailadress, '', class: 'mailadress'
+        = text_field :email, '', class: 'mailadress'
       .form_signup-container_registration-form_signup-container_password
         = label :password, 'パスワード(７文字以上)', class: 'signup-label'
         %span.sessential-icon 必須
@@ -50,14 +51,14 @@
         = label :name, '送付先お名前(全角)', class: 'signup-label'
         %span.sessential-icon 必須
         %br
-        = text_field :family_name, '苗字', class:'family_name'
-        = text_field :first_name, '名前', class:'first_name'
+        = text_field :destination_family_name, '苗字', class:'family_name'
+        = text_field :destination_first_name, '名前', class:'first_name'
       .form_signup-container_registration-form_signup-container_furigana
         = label :kana, '送付先お名前カナ(全角)', class:'signup-label' 
         %span.sessential-icon 必須    
         %br
-        = text_field :family_name_kana, '苗字', class:'family_name_kana'
-        = text_field :first_name_kana, '名前', class:'first_name_kana' 
+        = text_field :destination_family_name_kana, '苗字', class:'family_name_kana'
+        = text_field :destination_first_name_kana, '名前', class:'first_name_kana' 
       .form_signup-container_registration-form_signup-container_postalcode
         = label :postalcode, '郵便番号', class: 'signup-label'
         %span.sessential-icon 必須 
@@ -69,20 +70,20 @@
         %br
         = text_field :prefectures, '都道府県', class: 'prefectures'
       .form_signup-container_registration-form_signup-container_municipalities
-        = label :prefectures, '市区町村', class: 'signup-label'
+        = label :city, '市区町村', class: 'signup-label'
         %span.sessential-icon 必須 
         %br
-        = text_field :municipalities, '市区町村', class: 'municipalities'
+        = text_field :city, '市区町村', class: 'municipalities'
       .form_signup-container_registration-form_signup-container_adress
         = label :adress, '番地', class: 'signup-label'
         %span.sessential-icon 必須 
         %br
-        = text_field :adress, '都道府県', class: 'adress'
+        = text_field :house_number, '番地', class: 'adress'
       .form_signup-container_registration-form_signup-container_street_adress
         = label :prefectures, 'マンションやビル名、部屋番号', class: 'signup-label'
         %span.optional-icon 任意
         %br
-        = text_field :prefectures, 'マンションやビル名、部屋番号', class: 'street_adress'
+        = text_field :building_name, 'マンションやビル名、部屋番号', class: 'street_adress'
       .form_signup-container_registration-form_signup-container_phone_number
         = label :phone_number, '電話番号', class: 'signup-label'
         %span.optional-icon 任意

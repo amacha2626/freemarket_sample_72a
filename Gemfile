@@ -65,5 +65,5 @@ end
 
 gem 'font-awesome-sass'
 gem 'devise'
-
+gem 'ancestry'
 gem 'payjp'

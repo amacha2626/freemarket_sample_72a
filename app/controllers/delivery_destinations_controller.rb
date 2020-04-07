@@ -11,5 +11,5 @@ class DeliveryDestinationsController < ApplicationController
 
   def update
   end
-
+  
 end

@@ -5,19 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :profile, dependent: :destroy
-  accepts_nested_attributes_for :profile
   has_one :credit_card, dependent: :destroy
   has_one :delivery_destination, dependent: :destroy
-  accepts_nested_attributes_for :delivery_destination
   has_many :comments, dependent: :destroy
   has_many :buyer_items, foreign_key: "buyer_id", class_name: 'Items'
   has_many :seller_items, foreign_key: "seller_id", class_name: 'Items'
-  
-  with_options presence: true do
-    validates :nickname
-    validates :email,    uniqueness: {case_sensitive: false},
-                         format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
-    validates :password, length: {minimum: 7}
 
-  end
 end

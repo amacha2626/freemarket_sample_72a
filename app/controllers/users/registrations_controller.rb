@@ -18,8 +18,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
 
     @user = User.new(user_params)
-    @user.save!
-    
+    @user.profile.birth_day = params[:birth_day]["birth_day(1i)"]+ "-" + params[:birth_day]["birth_day(2i)"] + "-" + params[:birth_day]["birth_day(3i)"]
+    @user.save
+    redirect_to new_user_registration_path
     # @profile = Profile.new(profile_params)
     # @user.build_profile
 
@@ -85,7 +86,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
    def user_params
-    params.require(:user).permit(:nickname, :email, :password, profile: [:family_name, :first_name, :family_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day], delivery_destination: [:destination_family_name, :destination_first_name, :destination_family_name_kana, :destination_first_name_kana, :postalcode, :prefectures, :city, :house_number, :building_name, :phone_number])
+    params.require(:user).permit(:nickname, :email, :password, profile_attributes: [:family_name, :first_name, :family_name_kana, :first_name_kana, :birth_day], delivery_destination_attributes: [:destination_family_name, :destination_first_name, :destination_family_name_kana, :destination_first_name_kana, :postal_code, :prefecture, :city, :house_number, :building_name, :phone_number])
    end
    
   #  def profile_params

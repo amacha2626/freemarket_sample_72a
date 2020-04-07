@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:show, :edit, :update, :logout] do
-    resources :profiles, only: :create
+    resources :profiles, only: [:create, :show]
     resources :delivery_destinations, only: [:new, :create, :edit, :update]
     member do
       get 'logout'

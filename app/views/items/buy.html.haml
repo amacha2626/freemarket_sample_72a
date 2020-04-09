@@ -39,9 +39,5 @@
         から受取場所変更をすることが可能です。出品者が発送作業を開始した後には受取場所変更ができませんので、早めに受取場所の変更を行ってください。
       %button{type: "submit", class:'submit-btn'} 
         購入する
-      %form{:action => "/pay", :method => "post"}
-      %script.payjp-button{"data-key" => "", :src => "https://checkout.pay.jp/"}
-
-
-        
-
+      %form{action: "/pay", method: "post"}
+      %script.payjp-button{"data-key" => "", src: "https://checkout.pay.jp/"}

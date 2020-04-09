@@ -21,13 +21,13 @@ $(document).on('turbolinks:load', ()=> {
   });
 
   function appendOption(category){
-    var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+    var html = `<option value="${category.id}">${category.name}</option>`;
     return html;
   }
   function appendChildrenBox(insertHTML){
     var childSelectHtml = '';
     childSelectHtml = `<select class="category" id="children_category" name="item[category_id]">
-                        <option value="---" data-category="---">---</option>
+                        <option value="---" data-category="---" selected="selected">---</option>
                         ${insertHTML}
                       </select>`;
     $('.exhibition-container_registration-form_category').append(childSelectHtml);
@@ -35,18 +35,18 @@ $(document).on('turbolinks:load', ()=> {
   function appendGrandchildrenBox(insertHTML){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<select class="category" id="grandchildren_category" name="item[category_id]">
-                              <option value="---" data-category="---">---</option>
+                              <option value="---" data-category="---" selected="selected">---</option>
                               ${insertHTML}
                             </select>`;
     $('.exhibition-container_registration-form_category').append(grandchildSelectHtml);
   }
   $('#parent_category').on('change', function(){
-    var parentCategory = document.getElementById('parent_category').value;
-    if(parentCategory != "---"){
+    var parentId = document.getElementById('parent_category').value;
+    if(parentId != "---"){
       $.ajax({
         url: 'category_children',
         type: 'GET',
-        data: { parent_name: parentCategory },
+        data: { parent_id: parentId },
         dataType: 'json'
       })
       .done(function(children){
@@ -67,7 +67,7 @@ $(document).on('turbolinks:load', ()=> {
     }
   });
 
-  $('#children_category').on('change', function(){
+  $('.exhibition-container_registration-form_category').on('change', '#children_category', function(){
     var childId = document.getElementById('children_category').value;
     if(childId != "---"){
       $.ajax({

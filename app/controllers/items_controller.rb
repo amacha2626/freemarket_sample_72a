@@ -7,17 +7,28 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_images.new
-    @category_parent_array = ["---"]
+    @category_parent_array = [["---", ""]]
     Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-   end
+      array = []
+      array << parent.name
+      array << parent.id
+      @category_parent_array << array
+    end
   end
 
   def create
     @item = Item.new(item_params)
     if @item.save
+
       redirect_to root_path
     else
+      @category_parent_array = [["---", ""]]
+      Category.where(ancestry: nil).each do |parent|
+        array = []
+        array << parent.name
+        array << parent.id
+        @category_parent_array << array
+      end
       render :new
     end
   end
@@ -38,11 +49,11 @@ class ItemsController < ApplicationController
   end
 
   def category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @category_children = Category.find(params[:parent_id]).children
   end
 
   def category_grandchildren
-    @category_grandchildren = Category.find("#{params[:child_id]}").children
+    @category_grandchildren = Category.find(params[:child_id]).children
   end
 
   private

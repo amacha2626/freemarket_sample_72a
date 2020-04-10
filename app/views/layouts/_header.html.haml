@@ -30,7 +30,7 @@
           .header-bar__navbar__user__login
             =link_to "ログアウト", user_session_path, method: :delete
           .header-bar__navbar__user__new
-            =link_to "マイページ", user_path, current_user.id
+            =link_to "マイページ", user_path(current_user.id)
         - else
           .header-bar__navbar__user__login
             =link_to "ログイン", new_user_session_path

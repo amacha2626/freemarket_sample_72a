@@ -7,14 +7,6 @@
       = link_to '新規会員登録',class: 'signin-top_signup-btn'        
   = form_for(resource, as: resource_name, url: user_session_path) do |f|
     .signin-container_signin-top_form
-      -# .signin-container_signin-top_form_sns
-      -#   = link_to root_path,class: 'signin-top_form_sns_facebook' do
-      -#     %i.fab.fa-facebook-square.signin-top_form-icon.signin-top_form-facebook
-      -#     = 'Facebookでログイン'
-      -#   %br
-      -#   = link_to root_path,class: 'signin-top_form_sns_google' do
-      -#     %i.fab.fa-google.signin-top__form-icon.signin-top_form-google
-      -#     = 'Googleでログイン'
       .signin-container_signin-top_form_text
         = f.email_field :email, placeholder: 'メールアドレス',class: 'signin-top_form_text-email'
         %br

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:show, :edit, :update, :logout] do
-    resources :profiles, only: [:new, :create]
+    resources :profiles, only: [:new, :create, :show]
     resources :delivery_destinations, only: [:new, :create, :edit, :update]
     member do
       get 'logout'

@@ -13,11 +13,11 @@ class User < ApplicationRecord
   has_many :buyer_items, foreign_key: "buyer_id", class_name: 'Items'
   has_many :seller_items, foreign_key: "seller_id", class_name: 'Items'
   
-  with_options presence: true do
-    validates :nickname
-    validates :email,    uniqueness: {case_sensitive: false},
-                         format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
+
+    validates :nickname, presence: true
+    validates :email, presence: true
+    validates :email, uniqueness: true
     validates :password, length: {minimum: 7}
 
-  end
+
 end

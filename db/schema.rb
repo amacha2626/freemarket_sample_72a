@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20200407115208) do
     t.string   "city",                         null: false
     t.string   "house_number",                 null: false
     t.string   "building_name"
-    t.integer  "phone_number"
+    t.string   "phone_number"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["user_id"], name: "index_delivery_destinations_on_user_id", using: :btree
@@ -96,11 +96,9 @@ ActiveRecord::Schema.define(version: 20200407115208) do
     t.string   "first_name",       null: false
     t.string   "family_name_kana", null: false
     t.string   "first_name_kana",  null: false
-    t.date     "birth_year",       null: false
-    t.date     "birth_month",      null: false
-    t.date     "birth_day",        null: false
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.date     "birth_day",        null: false
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 

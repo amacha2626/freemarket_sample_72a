@@ -26,11 +26,13 @@
         .header-bar__navbar__menu__brand
           =link_to "ブランド", '#'
       .header-bar__navbar__user
-        -# .header-bar__navbar__user__login
-        -#   =link_to "ログイン", new_user_session_path
-        -# .header-bar__navbar__user__new
-        -#   =link_to "新規会員登録", new_user_registration_path
-
-        .header-bar__navbar__user__mypage
-          -# =link_to "マイページ", user_path(current_user)
-          =link_to "マイページ", '/users/1'
+        - if user_signed_in?
+          .header-bar__navbar__user__login
+            =link_to "ログアウト", user_session_path, method: :delete
+          .header-bar__navbar__user__new
+            =link_to "マイページ", user_path, current_user.id
+        - else
+          .header-bar__navbar__user__login
+            =link_to "ログイン", new_user_session_path
+          .header-bar__navbar__user__new
+            =link_to "新規会員登録", new_user_registration_path

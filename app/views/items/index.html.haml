@@ -120,9 +120,17 @@
       - @items.each do |item|
         .picup__box__list__item
           .picup__box__list__item__pic
-            - item.item_images.each do |image|
-              = image_tag image.image
-              - break
+            - unless item.buyer_id
+              - item.item_images.each do |image|
+                = image_tag image.image
+                - break
+            - else
+              - item.item_images.each do |image|
+                = image_tag image.image
+                - break
+              .picup__box__list__item__pic__sold
+                .picup__box__list__item__pic__sold__inner
+                  SOLD
           .picup__box__list__item__name
             = item.name
           .picup__box__list__item__price

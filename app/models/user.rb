@@ -14,10 +14,10 @@ class User < ApplicationRecord
   has_many :seller_items, foreign_key: "seller_id", class_name: 'Items'
   
 
-    validates :nickname, presence: true
-    validates :email, presence: true
-    validates :email, uniqueness: true
-    validates :password, length: {minimum: 7}
+  validates :nickname, presence: true
+  validates :email, presence: true
+  validates :email, uniqueness: true
+  validates :password, length: {minimum: 7}
 
 
 end

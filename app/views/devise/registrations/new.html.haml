@@ -23,7 +23,7 @@
           = f.label :nickname, 'ニックネーム', class: 'signup-label'
           %span.esessential-icon 必須
           %br
-          = f.text_field :nickname, class: 'nickname'
+          = f.text_field :nickname, class: 'nickname', autofocus: true
         .form_signup-container_registration-form_signup-container_email
           = f.label :mailadress, 'メールアドレス(＠とドメインを含む)', class: 'signup-label'
           %span.esessential-icon 必須

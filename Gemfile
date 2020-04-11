@@ -65,3 +65,13 @@ end
 
 gem 'font-awesome-sass'
 gem 'devise'
+gem 'ancestry'
+gem 'payjp'
+gem 'rspec-rails'
+gem 'factory_bot_rails'
+
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'jquery-rails'
+gem 'gretel'
+gem 'fog-aws'

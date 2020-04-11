@@ -1,0 +1,20 @@
+.wrapper
+  = render 'users/mypage-side'
+  .profile-main
+    %h2.profile-main__head
+      本人情報
+    .profile-main__container
+      .form-group#full-name
+        %label お名前
+        %p
+          = @profile.family_name
+          = @profile.first_name
+      .form-group#full-name-kana
+        %label お名前カナ
+        %p
+          = @profile.family_name_kana
+          = @profile.first_name_kana
+      .form-group#birth-day
+        %label 生年月日
+        %p
+          = @profile.birth_day.strftime("%Y/%m/%d")

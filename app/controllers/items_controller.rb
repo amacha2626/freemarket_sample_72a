@@ -39,9 +39,23 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    @item.item_images.find_by(item_id: params[:id])
+    @category_parent_array = [["---", ""]]
+    Category.where(ancestry: nil).each do |parent|
+      array = []
+      array << parent.name
+      array << parent.id
+      @category_parent_array << array
+    end
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -61,6 +75,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :brand_id, :condition, :postage_payer, :shipping_from, :necessary_days, :price, item_images_attributes: [:image]).merge(seller_id: 1)
+    params.require(:item).permit(:name, :description, :category_id, :brand_id, :condition, :postage_payer, :shipping_from, :necessary_days, :price, item_images_attributes: [:image, :_destroy, :id]).merge(seller_id: 1)
   end
 end

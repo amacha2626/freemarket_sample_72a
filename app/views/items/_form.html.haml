@@ -11,6 +11,12 @@
               = i.file_field :image, class: 'js-file'
               %br
               %span.js-remove 削除
+            - if @item.persisted?
+              = i.check_box :_destroy, data:{ index: i.index }
+          - if @item.persisted?
+            .js-file-group{ data: {index: @item.item_images.count}}
+              = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]"
+              .js-remove 削除
         -# .addphotos
       .exhibition-container_registration-form_item_name 
         = label :item_name, '商品名', class: 'labelname'

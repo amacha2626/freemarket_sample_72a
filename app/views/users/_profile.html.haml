@@ -1,10 +1,9 @@
 .wrapper__main
   .wrapper__main__profile
     .wrapper__main__profile__user
-      = link_to '#' do
-        = image_tag '/assets/mypage-icon.png', class: "wrapper__main__profile__user__icon"
-        %p.wrapper__main__profile__user__name 
-          = @user.nickname
+      = link_to '/' do
+        = image_tag 'mypage-icon.png', class: "wrapper__main__profile__user__icon"
+        %p.wrapper__main__profile__user__name dog man
   .wrapper__main__tabs
     %input#tab1{:name => 'tab-radio', :type => "radio", :checked => "checked"}
     %label.wrapper__main__tabs__left.tab(for="tab1")
@@ -13,24 +12,28 @@
     %label.wrapper__main__tabs__right.tab(for="tab2")
       購入した商品
     .wrapper__main__tabs__items#sell-items
-      - @sell_items.each do |item|
-        .wrapper__main__tabs__items__item
-          - item.item_images.each do |image|
-            = image_tag image.image, class: 'wrapper__main__tabs__items__item__img'
-            - break
-          %p.wrapper__main__tabs__items__item__name
-            = item.name
-          %p.wrapper__main__tabs__items__item__price
-            = item.price
-            円 (税込)
+      .wrapper__main__tabs__items__item
+        = image_tag 'https://grapee.jp/wp-content/uploads/54897_main1-768x576.jpg', class: 'wrapper__main__tabs__items__item__img'
+        %p.wrapper__main__tabs__items__item__name 商品名
+        %p.wrapper__main__tabs__items__item__price 30,000円
+      .wrapper__main__tabs__items__item
+        = image_tag 'https://wired.jp/wp-content/uploads/2019/10/dog-unsolicited.jpg', class: 'wrapper__main__tabs__items__item__img'
+        %p.wrapper__main__tabs__items__item__name 商品名
+        %p.wrapper__main__tabs__items__item__price 30,000円
+      .wrapper__main__tabs__items__item
+        = image_tag 'https://stat.ameba.jp/user_images/20170914/08/omame-gorogoro/c8/66/j/o0873096014026916678.jpg?caw=800', class: 'wrapper__main__tabs__items__item__img'
+        %p.wrapper__main__tabs__items__item__name 商品名
+        %p.wrapper__main__tabs__items__item__price 30,000円
     .wrapper__main__tabs__items#buyed-items
-      - @buyed_items.each do |item|
-        .wrapper__main__tabs__items__item
-          - item.item_images.each do |image|
-            = image_tag image.image, class: 'wrapper__main__tabs__items__item__img'
-            - break
-          %p.wrapper__main__tabs__items__item__name
-            = item.name
-          %p.wrapper__main__tabs__items__item__price
-            = item.price
-            円 (税込)
+      .wrapper__main__tabs__items__item
+        = image_tag 'https://precious.ismcdn.jp/mwimgs/7/0/-/img_70bcb5cd7c89f86c9bb9b4dc66c29b69262532.jpg', class: 'wrapper__main__tabs__items__item__img'
+        %p.wrapper__main__tabs__items__item__name セット
+        %p.wrapper__main__tabs__items__item__price 50,000円
+      .wrapper__main__tabs__items__item
+        = image_tag 'https://agri.mynavi.jp/wp-content/uploads/2020/01/inu_ec.jpg', class: 'wrapper__main__tabs__items__item__img'
+        %p.wrapper__main__tabs__items__item__name 今なら3匹セットでサンキュッパ
+        %p.wrapper__main__tabs__items__item__price 39,800円
+      .wrapper__main__tabs__items__item
+        = image_tag 'https://static.camp-fire.jp/uploads/project_version/image/182571/44298417_1960013734054387_5412318817764245504_n.jpg', class: 'wrapper__main__tabs__items__item__img'
+        %p.wrapper__main__tabs__items__item__name 可愛い
+        %p.wrapper__main__tabs__items__item__price 9,900円

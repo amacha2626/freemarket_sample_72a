@@ -2,37 +2,20 @@
   text-align: center;
   &_signin-top {
     &_signup {
-      .text {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        font-size: 20px;
-      }
+      height: 25px;
+    }
+    &_new_register {
+      height: 40px;
     }
     &_form {
+      &_sns {
+        height: 165px;
+
+        }
       &_text {
-        height: 150px;
-        padding-top: 20px;
-        .signin-top_form_text-email {
-          height: 50px;
-          width: 300px;
-          margin-bottom: 10px;
-          font-size: 20px;
-        }
-        .signin-to_form_normal-password {
-          height: 50px;
-          width: 300px;
-          font-size: 20px;
-        }
       }
       &_form-container {
-        .login {
-          background-color: red;
-          color: white;
-          height: 50px;
-          width: 200px;
-          margin-bottom: 15px;
-          font-size: 15px;
-        }
+        padding-top: 20px; 
       }
     }
   }

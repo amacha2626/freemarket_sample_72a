@@ -1,17 +1,23 @@
-
-- breadcrumb :login
-
+-# ログインページです
 .signin-container
   .signin-container_signin-top
     .signin-container_signin-top_signup
-      %p.text アカウントをお持ちでない方はこちら
+      %p.signin-top_signup_text アカウントをお持ちでない方はこちら
     .signin-container_signin-top_new_register
-      = link_to '新規会員登録',class: 'signin-top_signup-btn'        
-  = form_for(resource, as: resource_name, url: user_session_path) do |f|
+      = link_to '新規会員登録',class: 'signin-top_signup-btn'
     .signin-container_signin-top_form
+      -# .signin-container_signin-top_form_sns
+      -#   = link_to root_path,class: 'signin-top_form_sns_facebook' do
+      -#     %i.fab.fa-facebook-square.signin-top_form-icon.signin-top_form-facebook
+      -#     = 'Facebookでログイン'
+      -#   %br
+      -#   = link_to root_path,class: 'signin-top_form_sns_google' do
+      -#     %i.fab.fa-google.signin-top__form-icon.signin-top_form-google
+      -#     = 'Googleでログイン'
       .signin-container_signin-top_form_text
-        = f.email_field :email, placeholder: 'メールアドレス',class: 'signin-top_form_text-email'
+        = email_field :email,class: 'signin-top_form_text-email default-input'
         %br
-        = f.password_field :password, placeholder: 'パスワード',class: 'signin-to_form_normal-password' 
+        = password_field :password,class: 'signin-to_form_normal-password default-input' 
       .signin-container_signin-top_form_form-container
-        = f.submit "ログイン", class: "login"
+        %button{:type => "login", :value => "ログイン"} ログイン
+      -# = link_to 'パスワードをお忘れの方', '',class: 'signin-top_form_normal-link default-link-text'

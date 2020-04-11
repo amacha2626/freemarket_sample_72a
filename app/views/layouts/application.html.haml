@@ -9,6 +9,12 @@
   %body
     =render "layouts/header"
 
+    
+  .breadcrumbs
+    = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumbs-list"
+ 
+
     = yield
+
 
     =render "layouts/fooder"

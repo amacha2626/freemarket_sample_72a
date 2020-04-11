@@ -8,9 +8,10 @@
       %li.wrapper__side__menu
         %p 本人情報
         = icon('fas', 'angle-right', class: 'wrapper__side__menu__icon')
-    %li.wrapper__side__menu
-      %p 登録住所編集
-      = icon('fas', 'angle-right', class: 'wrapper__side__menu__icon')
+    = link_to edit_user_delivery_destination_path(1) do
+      %li.wrapper__side__menu
+        %p 登録住所編集
+        = icon('fas', 'angle-right', class: 'wrapper__side__menu__icon')
     = link_to credit_user_path(1) do
       %li.wrapper__side__menu
         %p クレジットカード情報登録

@@ -8,7 +8,6 @@
 @import "exhibition";
 @import "buying";
 @import "categories";
-@import "profiles";
 
 body {
   margin: 0;
@@ -18,8 +17,8 @@ body {
 }
 
 
-
-@import 'profile';
+@import "mypage-top";
+@import "mypage-main";
 @import 'logout';
 @import 'regist-credit';
 

@@ -8,6 +8,7 @@
 @import "exhibition";
 @import "buying";
 @import "categories";
+@import "profiles";
 
 body {
   margin: 0;
@@ -24,3 +25,4 @@ body {
 
 @import "header";
 @import "fooder";
+@import 'breadcrumbs';

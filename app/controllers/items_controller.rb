@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
     @items = Item.all.order("created_at DESC").limit(3)
   end
 
+  
   def new
     @item = Item.new
     @item.item_images.new
@@ -34,6 +35,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
   end
 
   def edit

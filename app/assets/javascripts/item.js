@@ -14,31 +14,30 @@ $(document).on('turbolinks:load', ()=> {
     return html;
   }
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
-  lastIndex = $('.js-file_group:last').data('index');
+  lastIndex = $('.js-file-group:last').data('index');
   fileIndex.splice(0, lastIndex);
+
   $('.hidden-destroy').hide();
   
-  $('#image-box').on('change', '.js-file', function(e){
-    $('#image-box').on('change', '.js-file', function(e) {
-      const targetIndex = $(this).parent().data('index');
-      // ファイルのブラウザ上でのURLを取得する
-      const file = e.target.files[0];
-      const blobUrl = window.URL.createObjectURL(file);
-      // 該当indexを持つimgタグがあれば取得して変数imgに入れる(画像変更の処理)
-      if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
-        img.setAttribute('src', blobUrl);
-      } else {  // 新規画像追加の処理
-        $('#previews').append(buildImg(targetIndex, blobUrl));
-        // fileIndexの先頭の数字を使ってinputを作る
-        $('#image-box').append(buildFileField(fileIndex[0]));
-        fileIndex.shift();
-        // 末尾の数に1足した数を追加する
-        fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
-      }
-    });
-    // $('#image-box').append(buildFileField(fileIndex[0]));
-    // fileIndex.shift();
-    // fileIndex.push(fileIndex[fileIndex.length-1]+1)
+  $('#image-box').on('change', '.js-file', function(e) {
+    const targetIndex = $(this).parent().data('index');
+    // ファイルのブラウザ上でのURLを取得する
+    const file = e.target.files[0];
+    const blobUrl = window.URL.createObjectURL(file);
+    // 該当indexを持つimgタグがあれば取得して変数imgに入れる(画像変更の処理)
+    console.log(targetIndex)
+    if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
+      img.setAttribute('src', blobUrl);
+      img.setAttribute('width', '100px');
+      img.setAttribute('height', '100px');
+    } else {  // 新規画像追加の処理
+      $('#previews').append(buildImg(targetIndex, blobUrl));
+      // fileIndexの先頭の数字を使ってinputを作る
+      $('#image-box').append(buildFileField(fileIndex[0]));
+      fileIndex.shift();
+      // 末尾の数に1足した数を追加する
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
+    }
   });
   $('#image-box').on('click', '.js-remove', function(){
     const targetIndex = $(this).parent().data('index')
@@ -77,7 +76,7 @@ $(document).on('turbolinks:load', ()=> {
     var parentId = document.getElementById('parent_category').value;
     if(parentId != "---"){
       $.ajax({
-        url: 'category_children',
+        url: '/items/category_children',
         type: 'GET',
         data: { parent_id: parentId },
         dataType: 'json'
@@ -104,7 +103,7 @@ $(document).on('turbolinks:load', ()=> {
     var childId = document.getElementById('children_category').value;
     if(childId != "---"){
       $.ajax({
-        url: 'category_grandchildren',
+        url: '/items/category_grandchildren',
         type: 'GET',
         data: { child_id: childId },
         dataType: 'json'

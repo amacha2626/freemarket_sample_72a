@@ -19,8 +19,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     @user = User.new(user_params)
     @user.profile.birth_day = params[:birth_day]["birth_day(1i)"]+ "-" + params[:birth_day]["birth_day(2i)"] + "-" + params[:birth_day]["birth_day(3i)"]
-    @user.save
-    redirect_to new_user_registration_path
+    if @user.save
+    sign_in @user
+    redirect_to root_path
+    end
     # @profile = Profile.new(profile_params)
     # @user.build_profile
 

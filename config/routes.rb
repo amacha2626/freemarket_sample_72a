@@ -24,6 +24,15 @@ Rails.application.routes.draw do
       get 'logout'
       get 'credit'
     end
+    resources :credit_card, only: [:new, :create, :show, :edit] do
+      collection do
+        post 'delete', to: 'credit_cards#delete'
+        post 'show'
+      end
+      member do
+        get 'confirmation'
+      end
+    end 
   end
   resources :categories, only: :index
 end

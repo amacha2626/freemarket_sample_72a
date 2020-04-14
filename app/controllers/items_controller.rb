@@ -48,9 +48,31 @@ class ItemsController < ApplicationController
       array << parent.id
       @category_parent_array << array
     end
+
+    @category_children = [["---", ""]]
+    select_category_grandparent_id = Category.find(@item.category_id).parent.parent_id
+    Category.find(select_category_grandparent_id).children.each do |children|
+      array = []
+      array << children.name
+      array << children.id
+      @category_children << array
+    end
+
+    @category_grandchildren = [["---", ""]]
+    select_category_parent_id = Category.find(@item.category_id).parent_id
+    Category.find(select_category_parent_id).children.each do |grandchildren|
+      array = []
+      array << grandchildren.name
+      array << grandchildren.id
+      @category_grandchildren << array
+    end
+
+    @category_grandparent_id = Category.find(@item.category_id).parent.parent_id
+    @category_parent_id = Category.find(@item.category_id).parent_id
   end
 
   def update
+    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else

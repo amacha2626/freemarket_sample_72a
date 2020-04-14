@@ -39,8 +39,8 @@
         %br
         = f.select :category_id, @category_parent_array, {selected: @category_grandparent_id}, {class: "category", id: "parent_category"}
         - if @item.persisted?
-          = f.select :category_id, @category_children, {selected: @category_parent_id}, {class: "category", id: "parent_category"}
-          = f.select :category_id, @category_grandchildren, {selected: @item.category_id}, {class: "category", id: "parent_category"}
+          = f.select :category_id, @category_children, {selected: @category_parent_id}, {class: "category", id: "children_category"}
+          = f.select :category_id, @category_grandchildren, {selected: @item.category_id}, {class: "category", id: "grandchildren_category"}
 
       .exhibition-container_registration-form_brand_name
         = label :brand_name, 'ブランド', class: 'labelname'

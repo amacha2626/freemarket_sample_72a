@@ -6,11 +6,21 @@
         %span.esessential-icon 必須
         %br
         #image-box
+          #previews
+            - if @item.persisted?
+              - @item.item_images.each_with_index do |image, i|
+                = image_tag image.image.url, data:{index: i}, width: '100px', height: '100px'
           = f.fields_for :item_images do |i|
             .js-file-group{ data: {index: i.index} }
               = i.file_field :image, class: 'js-file'
               %br
               %span.js-remove 削除
+            - if @item.persisted?
+              = i.check_box :_destroy, data:{index: i.index}, class: 'hidden-destroy'
+          - if @item.persisted?
+            .js-file-group{ data: {index: @item.item_images.count}}
+              = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: 'js-file', id: "item_item_images_attributes_#{@item.item_images.count}_image"
+              .js-remove 削除
         -# .addphotos
       .exhibition-container_registration-form_item_name 
         = label :item_name, '商品名', class: 'labelname'
@@ -27,7 +37,10 @@
         = label :category, 'カテゴリー', class: 'labelname'
         %span.esessential-icon 必須
         %br
-        = f.select :category_id, @category_parent_array, {selected: "---"}, {class: "category", id: "parent_category"}
+        = f.select :category_id, @category_parent_array, {selected: @category_grandparent_id, include_blank: '---'}, {class: "category", id: "parent_category"}
+        - if @item.persisted?
+          = f.select :category_id, @category_children, {selected: @category_parent_id, include_blank: '---'} ,{class: "category", id: "children_category"}
+          = f.select :category_id, @category_grandchildren, {selected: @item.category_id, include_blank: '---'}, {class: "category", id: "grandchildren_category"}
 
       .exhibition-container_registration-form_brand_name
         = label :brand_name, 'ブランド', class: 'labelname'

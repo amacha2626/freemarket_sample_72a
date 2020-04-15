@@ -58,6 +58,8 @@ class ItemsController < ApplicationController
   end
 
   def buy
+    @item = Item.find(params[:id])
+    @seller_user = User.find(@item.seller_id)
   end
 
   def category_children

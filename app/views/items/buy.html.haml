@@ -20,14 +20,14 @@
           ¥
           = @item.price
       .buying_front_contents3_how
+        支払い方法
+      .buying_front_contents3_register
         - if current_user.credit_card
           クレジットカード登録済み
         - else
-          支払い方法
-      .buying_front_contents3_register
-        = link_to "#" do
-          = icon('fas fa-plus-circle', class: "register-icon")
-          登録してください
+          = link_to "#" do
+            = icon('fas fa-plus-circle', class: "register-icon")
+            登録してください
       .buying_front_contents3_send
         .buying_front_contents3_send_left
           配送先

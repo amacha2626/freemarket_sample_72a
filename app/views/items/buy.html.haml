@@ -4,25 +4,30 @@
     購入内容の確認
   .buying_contents2
     .buying_contents2_item
-      =image_tag "海１.jpg", size: "100x100"
+      =image_tag "#{@item.item_images[0].image}", size: "100x100"
       .buying_contents2_item_image
         .buying_contents2_item_image_name
-          名前
+          = @item.name
         .buying_contents2_item_image_total
-          税込み料金
+          = @item.price
+          円(税込)
   .buying_front
     .buying_front_contents3
       .buying_front_contents3_buy
         .buying_front_contents3_buy_label
           支払い金額
         .buying_front_contents3_buy_price
-          ¥金額
+          ¥
+          = @item.price
       .buying_front_contents3_how
         支払い方法
       .buying_front_contents3_register
-        = link_to "#" do
-          = icon('fas fa-plus-circle', class: "register-icon")
-          登録してください
+        - if current_user.credit_card
+          クレジットカード登録済み
+        - else
+          = link_to "#" do
+            = icon('fas fa-plus-circle', class: "register-icon")
+            登録してください
       .buying_front_contents3_send
         .buying_front_contents3_send_left
           配送先
@@ -30,9 +35,12 @@
           = link_to "＃" do
             変更する
       .buying_front_contents3_address
-        postal_code
+        = current_user.delivery_destination.postal_code
         %br
-        住所
+        = current_user.delivery_destination.prefecture
+        = current_user.delivery_destination.city
+        = current_user.delivery_destination.house_number
+        = current_user.delivery_destination.building_name
       .buying_front_contents3_text
         郵便局/コンビニ受取をご希望の方は、購入後、
         %span 取引画面

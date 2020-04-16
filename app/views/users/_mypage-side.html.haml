@@ -15,6 +15,10 @@
       %li.wrapper__side__menu
         %p クレジットカード情報登録
         = icon('fas', 'angle-right', class: 'wrapper__side__menu__icon')
+    = link_to edit_user_path(1) do
+      %li.wrapper__side__menu
+        %p クレジットカード情報確認/削除
+        = icon('fas', 'angle-right', class: 'wrapper__side__menu__icon')
     = link_to logout_user_path(1) do
       %li.wrapper__side__menu
         %p ログアウト

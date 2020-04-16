@@ -1,4 +1,4 @@
-class CreditCardController < ApplicationController
+class CreditCardsController < ApplicationController
   before_action :get_user_params, only: [ :edit, :confirmation, :show]
   before_action :get_payjp_info, only: [:new_create, :create, :delete, :show]
 
@@ -19,7 +19,7 @@ class CreditCardController < ApplicationController
       )
       @card = CreditCard.new(user_id: current_user.id, costomer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "show"
+        redirect_to root_path
       else
         redirect_to action: "edit", id: current_user.id
       end
@@ -37,7 +37,7 @@ class CreditCardController < ApplicationController
   end
 
   def show
-    card = current_user.credit_cards.first
+    card = current_user.credit_card
     if card.present?
       customer = Payjp::Customer.retrieve(card.costomer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
@@ -55,9 +55,13 @@ class CreditCardController < ApplicationController
 
   def get_payjp_info
     if Rails.env == 'development'
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = 'sk_test_6f9f3ca9ec31150d8902b510'
     else
       Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
     end
+  end
+
+  def get_user_params
+    current_user = User.find(params[:user_id])
   end
 end

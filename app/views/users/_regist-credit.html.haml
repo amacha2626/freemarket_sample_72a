@@ -52,7 +52,7 @@
 .main__content
 %section.chapter__container
   %h2.chapter__head クレジットカード情報入力
-  = form_tag('credit_card', method: :post, action: "create", id: 'charge-form',  name: "inputForm", class: "chapter__container__inner") do
+  = form_tag('credit_cards', method: :post, action: "create", id: 'charge-form',  name: "inputForm", class: "chapter__container__inner") do
     .form__main__container
       .form__content
         %label.payment__card カード番号

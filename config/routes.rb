@@ -23,7 +23,11 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:show, :edit, :update, :logout] do
-    resources :profiles, only: [:new, :create, :show]
+    resources :profiles, only: [:new, :create] do
+      collection do
+        get 'show', to: 'profiles#show'
+      end
+    end
     resources :delivery_destinations, only: [:new, :create, :edit, :update]
     member do
       get 'logout'

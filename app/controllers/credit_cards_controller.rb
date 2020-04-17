@@ -6,6 +6,13 @@ class CreditCardsController < ApplicationController
   end
 
   def edit
+    card = current_user.credit_card
+    if card.present?
+      customer = Payjp::Customer.retrieve(credit_cards.costomer_id)
+      @default_card_information = customer.cards.retrieve(credit_cards.card_id)
+    else
+      redirect_to action: "confirmation", id: current_user.id
+    end
   end
 
   def create
@@ -27,13 +34,18 @@ class CreditCardsController < ApplicationController
   end
   
   def delete
-    card = current_user.credit_cards.first
-    if card.present?
-      customer = Payjp::Customer.retrieve(card.costomer_id)
+    card = current_user.credit_card
+    if card.blank?
+      redirect_to action: "new"
+    else
+      Payjp.api_key = 'sk_test_0e2eb234eabf724bfaa4e676'
+      customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
+     #ここでpay.jpの方を消している
       card.delete
-    end
-      redirect_to action: "confirmation", id: current_user.id
+     #ここでテーブルにあるcardデータを消している
+    end  
+      # redirect_to action: "confirmation", id: current_user.id
   end
 
   def show

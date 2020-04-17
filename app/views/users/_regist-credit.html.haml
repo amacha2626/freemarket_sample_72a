@@ -53,6 +53,21 @@
 %section.chapter__container
   %h2.chapter__head クレジットカード情報入力
   = form_tag('credit_cards', method: :post, action: "create", id: 'charge-form',  name: "inputForm", class: "chapter__container__inner") do
+    %li
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?238737266",width:"49px",height:"20px"
+    %li
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?238737266",width:"34px",height:"20px"
+    %li
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?238737266",width:"30px",height:"20px"
+    %li
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?238737266",width:"32px",height:"20px"
+    %li
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?238737266",width:"21px",height:"20px"
+    %li
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?238737266",width:"32px",height:"20px"
+    %li
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?238737266",width:"32px",height:"20px"
+  %br
     .form__main__container
       .form__content
         %label.payment__card カード番号

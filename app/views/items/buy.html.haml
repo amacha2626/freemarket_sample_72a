@@ -45,7 +45,6 @@
         郵便局/コンビニ受取をご希望の方は、購入後、
         %span 取引画面
         から受取場所変更をすることが可能です。出品者が発送作業を開始した後には受取場所変更ができませんので、早めに受取場所の変更を行ってください。
-      %button{type: "submit", class:'submit-btn'} 
-        購入する
-      %form{action: "/pay", method: "post"}
-      %script.payjp-button{"data-key" => "pk_test_e837ed04709e8a14d7628ffa", src: "https://checkout.pay.jp/"}
+
+      = link_to "購入する", item_buyers_path(@item.id), class: 'btn submit-btn'
+ 

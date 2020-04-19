@@ -10,16 +10,15 @@
         .credit-wrapper__form__headline
           %p カード番号
           %p.credit-wrapper__form__headline__required 必須
-        -# %input(type="text" placeholder="半角数字のみ")
         = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
         .credit-wrapper__form__mark
-          %img(src="https://pcweb-assets.mercdn.net/assets/img/card/visa.svg?1152353370")
-          %img(src="https://pcweb-assets.mercdn.net/assets/img/card/master-card.svg?1152353370")
-          %img(src="https://www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?238737266")
-          %img(src="https://pcweb-assets.mercdn.net/assets/img/card/jcb.svg?1152353370")
-          %img(src="https://pcweb-assets.mercdn.net/assets/img/card/american_express.svg?238737266")
-          %img(src="https://pcweb-assets.mercdn.net/assets/img/card/dinersclub.svg?238737266")
-          %img(src="https://pcweb-assets.mercdn.net/assets/img/card/discover.svg?238737266")
+          = image_tag(src="visa.png")
+          = image_tag(src="mastercard.png")
+          = image_tag(src="jcb.png")
+          = image_tag(src="saisoncard.png")
+          = image_tag(src="amricanexpress.png")
+          = image_tag(src="dinersclub.png")
+          = image_tag(src="discover.png")
         .credit-wrapper__form__headline
           %p 有効期限
           %p.credit-wrapper__form__headline__required 必須

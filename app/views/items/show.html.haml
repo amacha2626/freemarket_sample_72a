@@ -19,7 +19,7 @@
     .details_contents_tax
       (税込) 送料込み
 
-    - if user_signed_in? && current_user.id != @item.seller_id
+    - if user_signed_in? && current_user.id != @item.seller_id && @item.buyer_id.blank?
       .details_contents_purchase_btn
         = link_to item_buyers_path(params[:id]) do
           購入画面に進む

@@ -30,9 +30,9 @@
       .buying_front_contents3_send
         .buying_front_contents3_send_left
           配送先
-        .buying_front_contents3_send_change
-          = link_to "＃" do
-            変更する
+        -# .buying_front_contents3_send_change
+        -#   = link_to "＃" do
+        -#     変更する
       .buying_front_contents3_address
         = current_user.delivery_destination.postal_code
         %br

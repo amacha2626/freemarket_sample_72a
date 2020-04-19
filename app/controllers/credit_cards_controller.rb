@@ -1,14 +1,13 @@
 class CreditCardsController < ApplicationController
   before_action :set_card, only: [:show, :destroy]
+  
   def new
     card = CreditCard.where(user_id: current_user.id)
     redirect_to credit_card_path(current_user.id) if card.exists?
   end
 
-
-  def pay #payjpとCardのデータベース作成
+  def pay
     Payjp.api_key = Rails.application.secrets[:PAYJP_PRIVATE_KEY]
-    #保管した顧客IDでpayjpから情報取得
     if params['payjp-token'].blank?
       redirect_to new_credit_card_path
     else
@@ -25,27 +24,29 @@ class CreditCardsController < ApplicationController
     end
   end
 
-  def destroy #PayjpとCardデータベースを削除
-    if card.present?
+  def destroy
+    if @card.present?
       Payjp.api_key = Rails.application.secrets[:PAYJP_PRIVATE_KEY]
-      customer = Payjp::Customer.retrieve(card.costomer_id)
+      customer = Payjp::Customer.retrieve(@card.costomer_id)
       customer.delete
-      card.delete
+      @card.delete
     end
       redirect_to new_credit_card_path
   end
 
-  def show #Cardのデータpayjpに送り情報を取り出す
-    if card.blank?
+  def show
+    if @card.blank?
       redirect_to new_credit_card_path 
     else
       Payjp.api_key = Rails.application.secrets[:PAYJP_PRIVATE_KEY]
-      customer = Payjp::Customer.retrieve(card.costomer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(@card.costomer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
 
+  private
+
   def set_card
-    card = CreditCard.find_by(user_id: current_user.id)
+    @card = CreditCard.find_by(user_id: current_user.id)
   end
 end

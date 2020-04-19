@@ -46,5 +46,7 @@
         %span 取引画面
         から受取場所変更をすることが可能です。出品者が発送作業を開始した後には受取場所変更ができませんので、早めに受取場所の変更を行ってください。
 
-      = link_to "購入する", item_buyers_path(@item.id), class: 'btn submit-btn'
+        = form_tag(action: :pay, method: :post) do
+          %button.buy-button{type:"submit"} 購入する
+
  

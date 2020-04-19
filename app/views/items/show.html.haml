@@ -21,7 +21,7 @@
 
     - if user_signed_in? && current_user.id != @item.seller_id
       .details_contents_purchase_btn
-        = link_to buy_item_path(params[:id]) do
+        = link_to item_buyers_path(params[:id]) do
           購入画面に進む
 
     .details_contents_text

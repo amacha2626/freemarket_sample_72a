@@ -1,4 +1,3 @@
--# 購入確認ページです
 .buying
   .buying_contents1
     購入内容の確認
@@ -47,6 +46,4 @@
         から受取場所変更をすることが可能です。出品者が発送作業を開始した後には受取場所変更ができませんので、早めに受取場所の変更を行ってください。
 
         = form_tag(action: :pay, method: :post) do
-          %button.buy-button{type:"submit"} 購入する
-
- 
+          %button.buy-button.submit-btn{type:"submit"} 購入する

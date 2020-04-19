@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :buy]
 
   def index
     @items = Item.all.order("created_at DESC").limit(3)
@@ -24,11 +25,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
     @item.item_images.find_by(item_id: params[:id])
     @category_parent_array = Category.where(ancestry: nil).pluck(:name, :id)
 
@@ -40,7 +39,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -58,6 +56,7 @@ class ItemsController < ApplicationController
   end
 
   def buy
+    @seller_user = User.find(@item.seller_id)
   end
 
   def category_children
@@ -69,6 +68,10 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :brand_id, :condition, :postage_payer, :shipping_from, :necessary_days, :price, item_images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)

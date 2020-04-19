@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'buyers/done'
 
   devise_for :users, :controllers => {
  :registrations => 'users/registrations',

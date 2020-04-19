@@ -9,7 +9,7 @@ class CreditCardsController < ApplicationController
     Payjp.api_key = Rails.application.secrets[:PAYJP_PRIVATE_KEY]
     #保管した顧客IDでpayjpから情報取得
     if params['payjp-token'].blank?
-      redirect_to new_card_path
+      redirect_to new_credit_card_path
     else
       customer = Payjp::Customer.create(
         card: params['payjp-token'],

@@ -1,4 +1,4 @@
-.profile-main {
+.mypage-main {
   width: 700px;
   margin-left: 40px;
   &__head {
@@ -13,7 +13,6 @@
     .form-group {
       margin-top: 40px;
       font-size: 14px;
-      text-align: center;
       label {
         font-weight: bold;
       }
@@ -22,4 +21,9 @@
       }
     }
   }
+}
+
+// 本人情報ページのみに反映
+#full-name, #full-name-kana, #birth-day {
+  text-align: center;
 }

@@ -7,11 +7,11 @@ class DeliveryDestinationsController < ApplicationController
   end
 
   def edit
-    @delivery = DeliveryDestination.find(params[:id])
+    @delivery = DeliveryDestination.find(params[:user_id])
   end
 
   def update
-    delivery = DeliveryDestination.find(params[:id])
+    delivery = DeliveryDestination.find(params[:user_id])
     delivery.update(delivery_params)
     redirect_to user_path(current_user)
   end

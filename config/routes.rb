@@ -27,7 +27,12 @@ Rails.application.routes.draw do
         get 'show', to: 'profiles#show'
       end
     end
-    resources :delivery_destinations, only: [:new, :create, :edit, :update]
+    resources :delivery_destinations, only: [:new, :create] do
+      collection do
+        get 'edit', to: 'delivery_destinations#edit'
+        patch 'update', to: 'delivery_destinations#update'
+      end
+    end
     member do
       get 'logout'
       get 'credit'

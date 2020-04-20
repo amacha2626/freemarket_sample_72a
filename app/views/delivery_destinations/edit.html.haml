@@ -5,7 +5,7 @@
       登録住所変更
     .mypage-main__container
       .content
-        = form_for @delivery, url: user_delivery_destination_path do |f|
+        = form_for @delivery, url: user_delivery_destinations_path do |f|
           .form-group
             = f.label :name, '送付先お名前(全角)'
             %span.esessential-icon 必須

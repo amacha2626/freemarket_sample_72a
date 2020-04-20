@@ -4,17 +4,49 @@
     %h2.mypage-main__head
       登録住所変更
     .mypage-main__container
-      .form-group#full-name
-        %label お名前
-        %p
-          -# = @profile.family_name
-          -# = @profile.first_name
-      .form-group#full-name-kana
-        %label お名前カナ
-        %p
-          -# = @profile.family_name_kana
-          -# = @profile.first_name_kana
-      .form-group#birth-day
-        %label 生年月日
-        %p
-          -# = @profile.birth_day.strftime("%Y/%m/%d")
+      .content
+        = form_for @delivery, url: user_delivery_destination_path do |f|
+          .form-group
+            = f.label :name, '送付先お名前(全角)'
+            %span.esessential-icon 必須
+            %br
+            = f.text_field :destination_family_name, placeholder: '山田', class:'destination_family_name'
+            = f.text_field :destination_first_name, placeholder: '太郎', class:'destination_first_name'
+          .form-group
+            = f.label :kana, '送付先お名前カナ(全角)', class:'input-label' 
+            %span.esessential-icon 必須    
+            %br
+            = f.text_field :destination_family_name_kana, placeholder: 'ヤマダ', class:'destination_family_name_kana'
+            = f.text_field :destination_first_name_kana, placeholder: 'タロウ', class:'destination_first_name_kana'
+          .form-group
+            = f.label :postal_code, '郵便番号', class: 'input-label'
+            %span.esessential-icon 必須 
+            %br
+            = f.text_field :postal_code, placeholder: '郵便番号 例：000-0000', class: 'postal_code'
+          .form-group
+            = f.label :prefecture, '都道府県', class: 'input-label'
+            %span.esessential-icon 必須 
+            %br
+            = f.text_field :prefecture, placeholder: '都道府県 例：東京都', class: 'prefecture'
+          .form-group
+            = f.label :city, '市区町村', class: 'input-label'
+            %span.esessential-icon 必須 
+            %br
+            = f.text_field :city, placeholder: '市区町村', class: 'city'
+          .form-group
+            = f.label :house_number, '番地', class: 'input-label'
+            %span.esessential-icon 必須 
+            %br
+            = f.text_field :house_number, placeholder: '番地', class: 'house_number'
+          .form-group
+            = f.label :building_name, 'マンションやビル名、部屋番号', class: 'input-label'
+            %span.optional-icon 任意
+            %br
+            = f.text_field :building_name, placeholder: 'マンションやビル名、部屋番号', class: 'building_name'
+          .form-group
+            = f.label :phone_number, '電話番号', class: 'input-label'
+            %span.optional-icon 任意
+            %br
+            = f.text_field :phone_number, placeholder: '電話番号', class: 'phone_number'
+            %br
+          = f.submit "変更する", class: "submit"

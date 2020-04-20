@@ -1,22 +1,21 @@
 .wrapper__side
   %ul
-    = link_to user_path(current_user) do
+    = link_to user_path(current_user.id) do
       %li.wrapper__side__menu.wrapper__side__mypage
         %p マイページ
         = icon('fas', 'angle-right', class: 'wrapper__side__menu__icon wrapper__side__mypage__icon')
-    = link_to user_profile_path(current_user) do
+    = link_to user_profiles_path(current_user.id) do
       %li.wrapper__side__menu
         %p 本人情報
         = icon('fas', 'angle-right', class: 'wrapper__side__menu__icon')
-    = link_to edit_user_delivery_destination_path(current_user) do
+    %li.wrapper__side__menu
+      %p 登録住所編集
+      = icon('fas', 'angle-right', class: 'wrapper__side__menu__icon')
+    = link_to new_credit_card_path do
       %li.wrapper__side__menu
-        %p 登録住所編集
+        %p クレジットカード情報
         = icon('fas', 'angle-right', class: 'wrapper__side__menu__icon')
-    = link_to credit_user_path(current_user) do
-      %li.wrapper__side__menu
-        %p クレジットカード情報登録
-        = icon('fas', 'angle-right', class: 'wrapper__side__menu__icon')
-    = link_to logout_user_path(current_user) do
+    = link_to logout_user_path(current_user.id) do
       %li.wrapper__side__menu
         %p ログアウト
         = icon('fas', 'angle-right', class: 'wrapper__side__menu__icon')

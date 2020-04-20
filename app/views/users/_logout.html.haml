@@ -1,4 +1,3 @@
 .wrapper__main
-  -# %button.logout ログアウト
-  = button_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"
-  
+  = link_to destroy_user_session_path, method: :delete do
+    %button.logout ログアウト

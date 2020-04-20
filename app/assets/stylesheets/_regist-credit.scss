@@ -39,18 +39,35 @@
       img{
         width: 50px;
         height: 20px;
+        object-fit: contain;
       }
     }
     &__submit{
       margin-top:40px;
-      button{
-        background-color: rgb(255, 0, 0);
-        color: #fff;
-        width: 100%;
-        border-radius: 5px;
-        margin-left:2px;
-        padding: 10px 0;
-      }
+      background-color: rgb(255, 0, 0);
+      color: #fff;
+      width: 100%;
+      border-radius: 5px;
+      margin-left:2px;
+      padding: 10px 0;
     }
+  }
+}
+
+.form-content{
+  width: 40%;
+  text-align: center;
+  margin: 0 auto;
+  button{
+    margin-top:40px;
+    background-color: rgb(255, 0, 0);
+    color: #fff;
+    width: 100%;
+    border-radius: 5px;
+    margin-left:2px;
+    padding: 10px 0;
+  }
+  p{
+    font-size: 25px;
   }
 }

@@ -1,0 +1,22 @@
+.categories-wrapper
+  .categories-wrapper__category
+    - if @grandparent
+      = @grandparent.name
+      %span -
+    - if @parent
+      = @parent.name
+      %span -
+    = @category.name
+    の商品一覧
+  .categories-wrapper__items
+    - @items.each do |item|
+      = link_to item_path(item.id) do
+        .categories-wrapper__items__item
+          - item.item_images.each do |image|
+            = image_tag image.image
+            - break
+          %br
+          = item.name
+          %br
+          ¥
+          = item.price

@@ -1,0 +1,18 @@
+.categories-wrapper{
+  padding: 40px;
+  width: 70%;
+  margin: 0 auto;
+  &__category{
+    margin-bottom: 20px
+  }
+  &__items{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    &__item{
+      width: 220px;
+      height: 220px;
+      margin:0 auto;
+      object-fit: cover;
+    }
+  }
+}

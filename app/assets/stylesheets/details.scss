@@ -24,7 +24,9 @@
     &_image {
       text-align: center;
       &_image1 {
-      
+        img{
+          object-fit: contain;
+        }
       }
       &_images {
 

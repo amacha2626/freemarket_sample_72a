@@ -9,10 +9,12 @@
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     &__item{
-      width: 220px;
-      height: 220px;
       margin:0 auto;
-      object-fit: cover;
+      img{
+        object-fit: cover;
+        width: 220px;
+        height: 220px;
+      }
     }
   }
 }

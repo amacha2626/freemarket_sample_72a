@@ -7,7 +7,7 @@
   .category-list
     .category-list__nav
       - @parents.each do |parent|
-        = link_to "#", class: "category-name" do
+        = link_to category_path(parent.id), class: "category-name" do
           = parent.name
     .category-list__box
       - @parents.each do |parent|
@@ -16,7 +16,7 @@
             = parent.name
           .inner-box
             %p
-              = link_to "#" do
+              = link_to category_path(parent.id) do
                 すべて
             - parent.children.each do |child|
               .sub-category-name
@@ -24,10 +24,10 @@
               .sub-category-box
                 .sub-sub-category-name
                   %p
-                    = link_to "#" do
+                    = link_to category_path(child.id) do
                       すべて
                 - child.children.each do |grandchild|
                   .sub-sub-category-name
                     %p
-                      = link_to "#" do
+                      = link_to category_path(grandchild.id) do
                         =grandchild.name

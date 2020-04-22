@@ -36,8 +36,17 @@
         %tr
           %th カテゴリー
           %td
+            %span -
             = link_to @item.category.name, class:"category-n" do
-              = @item.category.name
+              = @grandparentcategory.name
+            %br
+            %span -
+            = link_to @item.category.name, class:"category-n" do
+              = @parentcategory.name
+            %br
+            %span -
+            = link_to @item.category.name, class:"category-n" do
+              = @category.name
 
         %tr
           %th ブランド

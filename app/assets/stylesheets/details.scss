@@ -18,6 +18,7 @@
         font-size: 24px;
         font-weight: bold;
         text-align: center;
+        
       }
     }
     &_image {
@@ -169,6 +170,12 @@
         color: #fff;
 
       }
+    }
+    &_sold{
+      background-color: #c0bdbd;
+      border-radius: 100px;
+      margin: 20px 130px;
+      width: 60%;
     }
 
     &_delete {

@@ -36,6 +36,11 @@
           %span.esessential-icon 必須
           %br
           = f.password_field :password, class: 'password'
+        .form_signup-container_registration-form_signup-container_password
+          = f.label :password_confirmation, 'パスワード再入力', class: 'signup-label'
+          %span.esessential-icon 必須
+          %br
+          = f.password_field :password, class: 'password'
         = f.fields_for :profile do |m|
           .form_signup-container_registration-form_signup-container_name
             = m.label :name, 'お名前(全角)', class: 'signup-label'
